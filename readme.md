@@ -1,0 +1,34 @@
+Mapping Converter works to convert a mapping from:
+```
+@HD	VN:1.4	SO:unsorted
+@SQ	SN:NC_004718.3	LN:29751
+@SQ	SN:NC_009452.1	LN:23814
+@SQ	SN:NC_014373.1	LN:18940
+@SQ	SN:NC_043439.1	LN:11916
+@SQ	SN:NC_055325.1	LN:6406
+@SQ	SN:NC_055508.1	LN:15270
+@PG	ID:BBMap	PN:BBMap	VN:38.94	CL:java -ea -Xmx1871m -Xms1871m align2.BBMap build=1 overwrite=true fastareadlen=500 in=/data/viruses_data_01/final_sg.fa out=/data/viruses_data_01/mapping_01.txt ref=/data/viruses_data_01/contigs.fa
+read_201	0	NC_014373.1	9665	43	75=	*	0	0	TTAATCACTTATATTGTATTCATTTGAAATTACTCATTAGGCAAATACTTTGATTAAGAAAAAATAATTGGAAAA	*	NM:i:0	AM:i:43
+read_202	16	NC_009452.1	19020	43	75=	*	0	0	ACTGGTTAGTATTAGATGCTATCCTACACACTAGATCATTCATAGAAGCAATTGATTTCCTAGTTAACAATCCAC	*	NM:i:0	AM:i:43
+read_203	0	NC_055325.1	2562	43	75=	*	0	0	CCTTGAGAGATTGGCGACATTAAAGGCCACAAGTAACTTCAATAATGGATGGTATAACTATAAGGAAGTAAAAGA	*	NM:i:0	AM:i:43
+read_204	16	NC_014373.1	2079	43	75=	*	0	0	TGCCACAAGTACAGGACAGATCCGAAAATCATGACCAAACCCTTCAAACACAGTCCAGGGTTTTGACTCCTATCA	*	NM:i:0	AM:i:43
+read_205	0	NC_004718.3	26316	43	75=	*	0	0	CTTCTGAAGGAGTTCCTGATCTTCTGGTCTAAACGAACTAACTATTATTATTATTCTGTTTGGAACTTTAACATT	*	NM:i:0	AM:i:43
+```
+to:
+```
+read_201    NC_014373.1
+read_202    NC_009452.1
+read_203    NC_055325.1
+read_204    NC_014373.1
+read_205    NC_004718.3
+```
+
+## How to use it
+
+```
+python mappingConverter.py <mapping_path> <output_path> <mappingSeparator> <outputSeparator>
+```
+For example:
+```
+python mapping_converter.py /tmp/mapping_01.txt /tmp/mapping_01_converted.txt '\t' '\t'
+```
