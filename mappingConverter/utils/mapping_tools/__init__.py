@@ -1,3 +1,6 @@
+from multiprocessing.sharedctypes import Value
+
+
 def convertMapping(mappingPath, mappingSep, outputSep):
     """Converts a mapping file type BBMap, to a type that TaxAM can understand.
 
@@ -47,3 +50,26 @@ def storeTaxamMapping(file_lines, output_name):
 
     with open(OUT_PUT_FOLDER + output_name + '.txt', 'w') as output_file:
         output_file.write(file_lines)
+
+
+def replaceCharacters(word, characters):
+    """Given a dict and a word, it will replace all word characters from the 
+    dict key to its value.
+
+    Parameters
+    ----------
+    word : str
+        Word where all replaceable characters will be replaced.
+    characters :dict
+        Each key is a replaceble character and its value is it
+        alternate.
+
+    Returns
+    -------
+    str
+        Replaced word.
+    """    
+    print(f'Our word: {word}')
+    for key, value in characters.items():
+        word = word.replace(key, value)
+    return word
