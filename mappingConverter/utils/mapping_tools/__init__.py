@@ -69,7 +69,6 @@ def replaceCharacters(word, characters):
     str
         Replaced word.
     """    
-    print(f'Our word: {word}')
     for key, value in characters.items():
         word = word.replace(key, value)
     return word
