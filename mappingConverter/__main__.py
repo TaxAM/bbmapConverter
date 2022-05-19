@@ -1,5 +1,5 @@
 import sys
-from util import *
+from utils import *
 
 mapping_path = sys.argv[1]
 output_path = sys.argv[2]
