@@ -1,10 +1,14 @@
-import sys
-from utils import *
+import os
+from utils import ROOT_PATH, validDelimiter
+from utils.local_parses import local_parses
 
-mapping_path = sys.argv[1]
-output_path = sys.argv[2]
-mappingSep = sys.argv[3]
-outputSep = sys.argv[4]
+# Local parsers
+args = local_parses().__dict__.copy()
+
+mapping_path = args['mapping_path']
+output_name = args['output_name']
+mappingSep = args['mapping_sep']
+outputSep = args['output_sep']
 
 mappingSep = validDelimiter(mappingSep)
 outputSep = validDelimiter(outputSep)
@@ -17,5 +21,10 @@ with open(mapping_path, 'r') as contig_file:
         if line[0][0] != '@':
             file_line += line[0] + outputSep + line[2] + '\n'
 
-with open(output_path, 'w') as output_file:
+# CHECKING IF OUTPUT FILE EXISTS
+OUT_PUT_FOLDER = ROOT_PATH + r'/output_converter/'
+if(not os.path.isdir(OUT_PUT_FOLDER)):
+        os.mkdir(OUT_PUT_FOLDER)
+
+with open(OUT_PUT_FOLDER + output_name + '.txt', 'w') as output_file:
     output_file.write(file_line)
