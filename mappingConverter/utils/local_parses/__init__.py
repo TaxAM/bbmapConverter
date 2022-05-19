@@ -13,7 +13,7 @@ def local_parses():
 
     parser.add_argument('-mp', '--mapping_path', help = 'Folder where are the files to be converted.', type = str, action = 'store', default = None)
 
-    parser.add_argument('-op', '--output_name', help = 'Name of output files.', type = str, action = 'store', default = None)
+    parser.add_argument('-op', '--output_name', help = 'Name of output files. If this flag will not be informed, it uses the files name to create converted files.', type = str, action = 'store', default = None)
 
     parser.add_argument('-ms', '--mapping_sep', help = 'Separator used to part each collumn in mapping file.', type = str, action = 'store', default = '\t')
 
