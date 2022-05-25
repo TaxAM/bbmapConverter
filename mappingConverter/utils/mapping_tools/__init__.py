@@ -1,5 +1,3 @@
-from multiprocessing.sharedctypes import Value
-
 
 def convertMapping(mappingPath, mappingSep, outputSep):
     """Converts a mapping file type BBMap, to a type that TaxAM can understand.
@@ -30,6 +28,7 @@ def convertMapping(mappingPath, mappingSep, outputSep):
                 file_lines += reads_id + outputSep + contigs_id + '\n'
 
     return file_lines
+
 
 def storeTaxamMapping(file_lines, output_name):
     """_summary_
